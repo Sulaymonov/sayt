@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="ru" >
+<head>
+	<meta charset="UTF-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"NRJS-191fb941c8dc93c6b81",applicationID:"32589471"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(7),c=e(8),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(9);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e){return!(!e||!e.protocol||"file:"===e.protocol)}t.exports=r},{}],4:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(6),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],5:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],6:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],7:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],8:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],9:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(7),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!E++){var e=x.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(h,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+x.offset],null,"api"),c("timing",["load",n]);var r=l.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===l.readyState&&o()}function o(){c("mark",["domContent",a()+x.offset],null,"api")}var a=e(2),c=e("handle"),f=e(7),u=e("ee"),s=e(5),d=e(3),p=window,l=p.document,m="addEventListener",v="attachEvent",g=p.XMLHttpRequest,w=g&&g.prototype;if(d(p.location)){NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:g,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var y=""+location,h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1208.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=t.exports={offset:a.getLastTimestamp(),now:a,origin:y,features:{},xhrWrappable:b,userAgent:s};e(1),e(4),l[m]?(l[m]("DOMContentLoaded",o,!1),p[m]("load",r,!1)):(l[v]("onreadystatechange",i),p[v]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var E=0}},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(8),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+	<meta content="width=device-width,initial-scale=1" name=viewport>
+	<title>Миратекст - биржа копирайтинга без комиссии! Закажите написание статей у профессионалов!</title>
+	
+		<meta name="description" content="Рерайтинг, копирайтинг, продающие, аналитические статьи, сказки, стихотворения, а также статьи на иностранных языках. Мы тщательно отобрали действительно лучших копирайтеров." />	
+	
+			
+			<meta property="og:site_name" content="Miratext.ru" />
+			<meta property="og:title" content="Миратекст - биржа копирайтинга без комиссии! Закажите написание статей у профессионалов!" />
+			<meta property="og:url" content="https://miratext.ru" />
+			<meta property="og:description" content="Рерайтинг, копирайтинг, продающие, аналитические статьи, сказки, стихотворения, а также статьи на иностранных языках. Мы тщательно отобрали действительно лучших копирайтеров." />
+							<meta property="og:image" content="https://miratext.ru/img/pages/og/home-image.png" />
+				<meta property="og:image:url" content="https://miratext.ru/img/pages/og/home-image.png" />		
+							
+
+	<meta name="webmoney" content="16D920F4-20CC-459C-8E63-3A625E352108"/>
+	<meta property="fb:admins" content="100001813288552"/>
+	<meta property="fb:app_id" content="1951156171873705"/>
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800|Poppins&display=swap&subset=cyrillic" rel="stylesheet">
+	<link type='text/css' rel='stylesheet' href='https://miratext.ru/min-css?f=css/public/bootstrap.min.css,css/public/font-awesome.min.css,css/public/jquery.fancybox.min.css,css/public/slick.css,css/public/style.css,css/jquery.qtip.min.css,css/ufd-base.css,css/ufd-bootstrap.css,css/ufd-bootstrap_sm.css,css/jquery.datetimepicker.css,css/awesome-bootstrap-checkbox.css,css/jquery.scrolling-tabs.min.css,css/main.css&amp;v=283' />	
+
+		<script type='text/javascript' src='https://miratext.ru/min-js?f=js/jquery.js,js/jquery/jquery-ui.min.js,js/jquery/jquery.ui.ufd.js,js/public/bootstrap.min.js,js/public/scripts.js,js/public/detect.min.js&amp;v=283'></script>		<script type="text/javascript">
+			$j = jQuery.noConflict();
+		</script>
+		<script type='text/javascript' src='https://miratext.ru/min-js?f=js/jquery/jquery.qtip.min.js,js/default.js,js/jquery/jquery.raty.js,js/jquery/jquery.cookie.js,js/jquery.datetimepicker.js,js/jquery.formatDateTime.js,js/jquery.scrolling-tabs.min.js,js/main.js,js/bootstrap-datepicker.js,js/bloodhound.min.js,js/jsrender.min.js,js/typeahead.jquery.min.js,js/redips-drag-source.js,js/public/svg.js,js/public/main.js&amp;v=283'></script>	
+			
+<style>.async-hide { opacity: 0 !important} </style>
+<script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+(a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+})(window,document.documentElement,'async-hide','dataLayer',4000,
+{'GTM-M3TMBXM':true});</script>
+
+<!-- Google Analytics openstat code by Netpeak start -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-34161055-1', 'auto');
+  ga('require', 'GTM-M3TMBXM');
+  ga('set', '&uid', '');
+  ga('set', 'dimension1', '');
+    ga('set', 'dimension2', '');
+  ga('send', 'pageview');
+</script>
+<!-- Google Analytics openstat code by Netpeak end -->	
+								<script src='https://www.google.com/recaptcha/api.js?render=6LcnD4UUAAAAAHhIqVXfFv3heVlHnSVXgxBy_sW4'></script>
+		
+
+</head>
+<body class="home">
+<!-- wrapper -->
+<div class="wrapper wrapper_offer">
+	<div id='indicate' class="panel panel-default display-none card">
+	<p>подождите немного...</p>
+	<div class="progress progress-striped active">
+		<div class="progress-bar progress-bar-success bg-success"  role="progressbar" aria-valuenow="100" aria-valuemin="100" aria-valuemax="100" style="width: 100%">
+		</div>		
+	</div>
+</div>
+<div id="indicate-overlay" class="indicate-overlayBG display-none"></div>	<!-- header -->
+	<header class="header">
+		<div class="container">
+			<div class="row justify-content-between align-items-center">
+				<div class="col-auto desktop-hidden">
+					<div class="header-toggle header-toggle_nav" data-id="mobile-nav"></div>
+				</div>
+				<div class="col-auto order-xl-first">
+					<div class="logo">
+						<a href="https://miratext.ru/miratext_default.html">
+							<img src="https://miratext.ru/img/public/logo.png?3" alt="" />						</a>
+					</div>
+				</div>
+				<div class="col-auto desktop-hidden">
+					<div class="header-toggle header-toggle_auth" data-id="auth"></div>
+				</div>
+				<div class="col-lg-auto desktop-visible">
+					<!-- menu desktop-->
+					<nav class="nav">
+						<ul class="nav__menu">
+							<li class="parent">
+								<a href="https://miratext.ru/pages/carefree-project">Беззаботный проект</a>
+								<ul class="children">
+									<li><a href="https://miratext.ru/pages/vedenie-bloga">Ведение блога</a></li>
+									<li><a href="https://miratext.ru/pages/opisanie-tovarov">Описание товаров</a></li>
+									<li><a href="https://miratext.ru/pages/vechnie-ssilki">Вечные ссылки</a></li>
+									<li><a href="https://miratext.ru/pages/agentstvam">Интернет-агентствам</a></li>
+									<li><a href="https://miratext.ru/pages/individualno">Что-то индивидуальное</a></li>
+								</ul>
+							</li>
+							<li class="parent">
+								<a href="https://miratext.ru/pages/galereya-uslug">Галерея услуг</a>
+								<ul class="children">
+									<li><a href="https://miratext.ru/pages/semantika-i-klasterizaciya">Семантика и кластеризация</a></li>
+									<li><a href="https://miratext.ru/pages/obrabotka-kontenta">Обработка контента</a></li>
+									<li><a href="https://miratext.ru/pages/vichitka-redaktorom">Вычитка редактором</a></li>
+									<li><a href="https://miratext.ru/pages/content-plan">Контент-план</a></li>
+									<li><a href="https://miratext.ru/pages/yandex-q">Яндекс.Кью</a></li>
+								</ul>
+							</li>
+							<li class="parent">
+																<a href="https://miratext.ru/miratext_default.html#">Инструменты</a>
+								<ul class="children">
+									<li><a href="https://miratext.ru/seo_analiz_text">Анализ текста</a></li>
+									<li><a href="https://miratext.ru/keywords-checker">Контроль ключевых слов</a></li>
+																	</ul>
+							</li>
+							<li><a href="https://miratext.ru/pages/contact">Контакты</a></li>
+															<li>
+									<a href="https://miratext.ru/users/login" class="showPopup nav__menu-login" data-title="Войти" data-class="login_popup">Войти</a>				
+								</li>
+								<li>
+									<a href="https://miratext.ru/users/registration" class="nav__menu-login">РегистрацияAzamat</a>							
+								</li>
+													</ul>
+					</nav>
+					<!-- /menu -->
+				</div>
+			</div>
+		</div>
+		<!-- mobile nav -->
+		<!-- noindex -->
+		<div class="mobile" id="mobile-nav">
+			<div class="mobile__menu-label">Azamat</div>
+			<div class="mobile__menu-back">Назад</div>
+			<div class="mobile__nav">
+				<ul class="mobile__menu">
+					<li class="parent">
+						<a href="https://miratext.ru/pages/carefree-project">Беззаботный проект</a>
+						<ul class="children">
+							<li><a href="https://miratext.ru/pages/vedenie-bloga">Ведение блога</a></li>
+							<li><a href="https://miratext.ru/pages/opisanie-tovarov">Описание товаров</a></li>
+							<li><a href="https://miratext.ru/pages/vechnie-ssilki">Вечные ссылки</a></li>
+							<li><a href="https://miratext.ru/pages/agentstvam">Интернет-агентствам</a></li>
+							<li><a href="https://miratext.ru/pages/individualno">Что-то индивидуальное</a></li>
+						</ul>
+					</li>
+					<li class="parent">
+						<a href="https://miratext.ru/pages/galereya-uslug">Галерея услуг</a>
+						<ul class="children">
+							<li><a href="https://miratext.ru/pages/semantika-i-klasterizaciya">Семантика и кластеризация</a></li>
+							<li><a href="https://miratext.ru/pages/obrabotka-kontenta">Обработка контента</a></li>
+							<li><a href="https://miratext.ru/pages/vichitka-redaktorom">Вычитка редактором</a></li>
+							<li><a href="https://miratext.ru/pages/content-plan">Контент-план</a></li>
+							<li><a href="https://miratext.ru/pages/yandex-q">Яндекс.Кью</a></li>
+						</ul>
+					</li>
+					<li class="parent">
+						<a href="https://miratext.ru/miratext_default.html#">Инструменты</a>
+						<ul class="children">
+							<li><a href="https://miratext.ru/seo_analiz_text">Анализ текста</a></li>
+							<li><a href="https://miratext.ru/keywords-checker">Контроль ключевых слов</a></li>
+													
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- /noindex -->
+		<!-- /mobile nav -->
+					<!-- mobile auth -->
+			<div class="mobile mobile_auth" id="auth">
+				<div class="mobile__menu-label mobile__menu-label_bold">Вход и регистрация</div>
+				<div class="mobile__auth">
+					<a href="https://miratext.ru/users/login" class="showPopup button" data-title="Войти" data-class="login_popup">Войти</a>				
+					<a href="https://miratext.ru/users/registration" class="button button_yellow">Зарегистрироваться</a>				
+				</div>
+			</div>
+				<!-- /mobile auth -->
+	</header>
+	<!-- /header -->
+	<!-- offer -->
+<div class="offer">
+	<div class="container">
+		<div class="row justify-content-between align-items-center">
+			<div class="col-lg-6 order-lg-last">
+				<div class="offer__image">
+					<img src="https://miratext.ru/img/pages/home-image.png" alt="" />				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="offer__content">
+					<h1 class="offer__title">Качественные тексты для сайтов и соцсетей</h1>
+					<div class="offer__text">
+						Проверенные копирайтеры, грамотные редакторы, наполнение сайтов под ключ. Найдем решение для любых задач и под любой бюджет.					</div>
+											<div class="offer__btns">
+							<a href="https://miratext.ru/users/login" class="showPopup button" data-title="Войти" data-class="login_popup">Войти</a>				
+							<a href="https://miratext.ru/users/registration" class="button button_yellow">Зарегистрироваться</a>						
+						</div>
+									</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /offer -->
+<!-- section -->
+<section class="section section_decor-1">
+	<div class="container">
+		<div class="section__title">
+			<span>Цифры сами</span>
+			<span>говорят за нас!</span>
+		</div>
+		<!-- counter -->
+		<ul class="counter">
+			<li class="counter__item">
+				<div class="counter__num"><span>1</span></div>
+				<div class="counter__content">
+					<div class="bold">Из 9 проходит наши тесты</div>
+					<div>Зато к нам попадают только лучшие из лучших после строгого отбора.</div>
+				</div>
+			</li>
+			<li class="counter__item">
+				<div class="counter__num"><span>1.2</span><small>млн</small></div>
+				<div class="counter__content">
+					<div class="bold">Статей</div>
+					<div>Продающие, информационные, аналитические статьи, сказки, стихотворения и многое другое.</div>
+				</div>
+			</li>
+			<li class="counter__item">
+				<div class="counter__num"><span>97%</span></div>
+				<div class="counter__content">
+					<div class="bold">Довольных заказчиков</div>
+					<div>Текст плохого качества? Доработаем по вашим пожеланиям или вернем деньги.</div>
+				</div>
+			</li>
+			<li class="counter__item counter__item_line">
+				<div class="counter__num"><span>5</span></div>
+				<div class="counter__content">
+					<div class="bold">Минут в среднем</div>
+					<div>Время отклика копирайтеров на ваш заказ. Все происходит очень быстро.</div>
+				</div>
+			</li>
+		</ul>
+		<!-- /counter -->
+	</div>
+</section>
+<!-- /section -->
+<!-- section -->
+<section class="section section_decor-2">
+	<div class="container">
+		<div class="section__title text-right">
+			<span>Что мы пишем</span>
+			<span>каждый день!</span>
+		</div>
+		<!-- cards -->
+		<div class="row row_cards align-items-stretch">
+			<div class="col-lg-3 col-sm-6 col-12">
+				<div class="service">
+					<div class="service__icon service__icon_web"></div>
+					<div class="bold">Тексты для любых сайтов</div>
+					<p>Главная страница, описание услуг, товаров, информационные тексты для блога.</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-sm-6 col-12">
+				<div class="service">
+					<div class="service__icon service__icon_user"></div>
+					<div class="bold">Тексты для социальных сетей</div>
+					<p>Короткие посты, длинные сторителлинги, информационные и коммерческие заметки.</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-sm-6 col-12">
+				<div class="service">
+					<div class="service__icon service__icon_mail"></div>
+					<div class="bold">Тексты для email рассылок</div>
+					<p>Триггерные, информационные, акционные, реактивационные и т.д.</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-sm-6 col-12">
+				<div class="service">
+					<div class="service__icon service__icon_share"></div>
+					<div class="bold">Нестандартные тексты</div>
+					<p>Сказки, шутки, стихотворения, пресс-релизы, тексты для лендинга и многое другое.</p>
+				</div>
+			</div>
+		</div>
+		<!-- /cards -->
+	</div>
+</section>
+<!-- /section -->
+<!-- prices -->
+<section class="section section_decor-3">
+	<div class="container">
+		<div class="section__title">
+			<span>Цены зависят от задач</span>
+			<small>Минимальная цена за 1000 знаков для разных уровней копирайтеров</small>
+		</div>
+		<div class="row row_cards justify-content-center align-items-stretch">
+			<!-- one col -->
+			<div class="col-lg-4 col-md-6 col-12">
+				<div class="tarif">
+					<div class="tarif__header">
+						<div class="tarif__title">Рерайт</div>
+						<div class="tarif__price">
+							<span>От</span>
+							<big>25</big>
+							<i class="fa fa-rub"></i>
+						</div>
+					</div>
+					<div class="tarif__body">
+						<ul>
+							<li>Статьи на основе других текстов</li>
+							<li>Хорошо подходит MFA сайтам, нужен только план и источники.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- /one col -->
+			<!-- one col -->
+			<div class="col-lg-4 col-md-6 col-12">
+				<div class="tarif">
+					<div class="tarif__header">
+						<div class="tarif__title">Копирайтинг</div>
+						<div class="tarif__price">
+							<span>От</span>
+							<big>75</big>
+							<i class="fa fa-rub"></i>
+						</div>
+					</div>
+					<div class="tarif__body">
+						<ul>
+							<li>Написание текстов часто на основе собственного опыта</li>
+							<li>Подходит для интернет-магазинов, страниц с услугами, соцсетей и ведения блога.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- /one col -->
+			<!-- one col -->
+			<div class="col-lg-4 col-md-6 col-12">
+				<div class="tarif">
+					<div class="tarif__header tarif__header_blue">
+						<div class="tarif__title">Спецзаказы</div>
+						<div class="tarif__price">
+							<span>От</span>
+							<big>100</big>
+							<i class="fa fa-rub"></i>
+						</div>
+					</div>
+					<div class="tarif__body">
+						<ul>
+							<li>Нестандартные тексты с серьезным погружением в задачу</li>
+							<li>Сказки, шутки, стихотворения, сценарии к роликам, пресс-релизы, тексты для лендинга и многое другое.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- /one col -->
+		</div>
+	</div>
+</section>
+<!-- /prices -->
+<!-- services -->
+<section class="section section_decor-in section_decor-4">
+	<div class="container">
+		<div class="section__title text-right">
+			<span>Преимущества</span>
+			<small>Услуги и функционал, которых ни у кого нет</small>
+		</div>
+		<!-- items -->
+		<div class="items items_home">
+			<!-- one item -->
+			<div class="item">
+				<div class="row justify-content-between align-items-center">
+					<div class="col-lg-auto">
+						<div class="item__image">
+							<img src="https://miratext.ru/img/public/home-1.png" alt="" />						</div>
+					</div>
+					<div class="col-lg">
+						<h2 class="item__title">
+							<a href="https://miratext.ru/pages/carefree-project">Беззаботный проект</a>							
+						</h2>
+						<div class="item__content item__content_min">
+							<p>Услуга для всех, кому некогда заниматься контентом. От владельцев интернет-магазинов, до интернет-агентств с большим количеством проектов.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /item -->
+			<!-- one item -->
+			<div class="item">
+				<div class="row justify-content-between align-items-center">
+					<div class="col-lg-auto">
+						<div class="item__image">
+							<img src="https://miratext.ru/img/public/new-image-2.png" alt="" />						</div>
+					</div>
+					<div class="col-lg">
+						<h2 class="item__title">
+							<a href="https://miratext.ru/pages/galereya-uslug">Галерея услуг</a>							
+						</h2>
+						<div class="item__content item__content_min">
+							<p>Сбор семантики, кластеризация, размещение и обработка контента, внедрение перелинковки, вычитка и исправление редактором, контент-план с потенциально трафиковыми темами на основе анализа конкурентов.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /item -->
+			<!-- one item -->
+			<div class="item">
+				<div class="row justify-content-between align-items-center">
+					<div class="col-lg-auto">
+						<div class="item__image">
+							<img src="https://miratext.ru/img/public/new-image-3.png" alt="" />						</div>
+					</div>
+					<div class="col-lg">
+						<h2 class="item__title"><a href="https://miratext.ru/seo_analiz_text">Анализ текста</a></h2>
+						<div class="item__content item__content_min">
+							<p>Удобный инструмент. Количество символов, тошнота, водянистость, облако частотности слов, а также количество повторений. Узнайте о своем тексте всё!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /item -->
+			<!-- one item -->
+			<div class="item">
+				<div class="row justify-content-between align-items-center">
+					<div class="col-lg-auto">
+						<div class="item__image">
+							<img src="https://miratext.ru/img/public/new-image-4.png" alt="" />						</div>
+					</div>
+					<div class="col-lg">
+						<h2 class="item__title"><a href="https://miratext.ru/keywords-checker">Контроль ключевых слов</a></h2>
+						<div class="item__content">
+							<p>Аналогов нет. Проверка текста на вхождение ключевых слов. Варианты вхождений: точное, чистое, прямое, разбавленное, морфологическое, обратное, сложное.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /item -->
+		</div>
+		<!-- /items -->
+	</div>
+</section>
+<!-- /services -->
+<!-- preims -->
+<section class="wave">
+	<div class="container">
+		<div class="section__title">
+			<span>Поможем вам работать</span> <span>более эффективно</span>
+			<small>Предлагаем целый набор преимуществ для комфортной работы</small>
+		</div>
+		<!-- cards -->
+		<div class="row row_cards row_cards-wave justify-content-center align-items-stretch">
+			<div class="col-lg-4 col-md-6 col-12">
+				<div class="reason">
+					<div class="reason__ico reason__ico_1"></div>
+					<!-- span для переноса строки, можно использовать br, если текст динамический -->
+					<div class="reason__title"><span>Контроль</span> <span>качества</span></div>
+					<div>Главный редактор выборочно проверяет статьи всех авторов. Все под колпаком.</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-12">
+				<div class="reason">
+					<div class="reason__ico reason__ico_2"></div>
+					<div class="reason__title"><span>Удобный поиск</span> <span>копирайтера</span></div>
+					<div>По специальности, резюме или географии. Смотрите отзывы и портфолио еще до сотрудничества.</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-12">
+				<div class="reason">
+					<div class="reason__ico reason__ico_3"></div>
+					<div class="reason__title"><span>Без заморочек</span> <span>с ценой</span></div>
+					<div>Если не можете оценить стоимость текста — создайте задачу без цены, и тогда авторы сами предложат свои условия.</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-12">
+				<div class="reason">
+					<div class="reason__ico reason__ico_4"></div>
+					<div class="reason__title"><span>Размещение статей</span> <span>на сайте</span></div>
+					<div>Не надо искать контент-менеджера. Предоставьте нам доступ к сайту и требования к публикации.</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-12">
+				<div class="reason">
+					<div class="reason__ico reason__ico_5"></div>
+					<div class="reason__title"><span>Интеграция с</span> <span>биржей Miralinks</span></div>
+					<div>Удобный экспорт, гарантия модерации, работа под “ключ” и пополнение баланса со сниженной комиссией.</div>
+				</div>
+			</div>			
+			<div class="col-lg-4 col-md-6 col-12">
+				<div class="reason">
+					<div class="reason__ico reason__ico_6"></div>
+					<div class="reason__title"><span>Пакетный</span> <span>заказ</span></div>
+					<div>Массовое создание однотипных заказов. Импорт данных из Excel. Быстро и удобно.</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-12">
+				<div class="reason">
+					<div class="reason__ico reason__ico_7"></div>
+					<div class="reason__title"><span>Комиссия для</span> <span>заказчика - 0%</span></div>
+					<div>Электронные способы пополнения для физ. лиц. Безналичные платежи по оферте и оригиналы закрывающих документов для юр. лиц.</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-12">
+				<div class="reason">
+					<div class="reason__ico reason__ico_8"></div>
+					<div class="reason__title"><span>Реферальная</span> <span>программа</span></div>
+					<div>Приглашайте друзей. Ваша прибыль — до 75% от дохода системы. Навсегда.</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-12">
+				<div class="reason">
+					<div class="reason__ico reason__ico_9"></div>
+					<div class="reason__title">Кэшбек</div>
+					<div>МираКексы — бонусы за работу в системе. Обменяйте их на наши промокоды или предложения партнеров.</div>
+				</div>
+			</div>
+		</div>
+		<!-- /cards -->
+	</div>
+</section>
+<!-- /preims -->
+<!-- reviews -->
+<section class="section">
+	<div class="container">
+		<div class="section__title">
+			Отзывы наших клиентов
+		</div>
+		<!-- bootstrap slider -->
+		<div class="reviews carousel slide" id="reviews">
+			<!-- dots -->
+			<ol class="carousel__dots carousel-indicators">
+				<li data-target="#reviews" data-slide-to="0" class="active"></li>
+				<li data-target="#reviews" data-slide-to="1"></li>
+				<li data-target="#reviews" data-slide-to="2"></li>
+				<li data-target="#reviews" data-slide-to="3"></li>
+				<li data-target="#reviews" data-slide-to="4"></li>
+			</ol>
+			<!-- /dots -->
+			<!-- slides -->
+			<div class="carousel-inner">
+				<!-- one slide -->
+				<div class="carousel-item active">
+					<div class="review">
+						<div class="review__avatar">
+							<img src="https://miratext.ru/img/public/review-avatar-4.png" alt="" />						</div>
+						<div class="review__vcard">
+							<div class="review__author">Михаил Ильченко</div>
+							<div class="review__prof">
+								Менеджер по развитию бизнеса, Jooble Россия <a href="https://ru.jooble.org/">https://ru.jooble.org/</a>
+							</div>
+						</div>
+						<div class="review__text">
+							<p>Поняли что наша сильная сторона это данные (цифры, аналитика), но вот доступно объяснить эти цифры, уже нужна экспертиза в создании материала. Что бы понятно и качественно рассказать об этих данных нужна была помощь. Доверили свой блог команде Миратекст. Будем продолжать работу, нравится сервис, оперативность, профессионализм.</p>
+						</div>
+					</div>
+				</div>
+				<!-- /one slide -->				
+				<!-- one slide-->
+				<div class="carousel-item">
+					<div class="review">
+						<div class="review__avatar">
+							<img src="https://miratext.ru/img/public/review-kto-chto-gde.png" alt="" />						</div>
+						<div class="review__vcard">
+							<div class="review__author">Дмитрий Сизов</div>
+							<div class="review__prof">
+								Руководитель <a href="https://kto-chto-gde.ru/">"КТО?ЧТО?ГДЕ?"</a>
+							</div>
+						</div>
+						<div class="review__text">
+							<p>Наш главный редактор активно использует беззаботные проекты при аврале собственных авторов и во время наполнения больших информационных разделов (имена, праздники, поздравления). Команда Миратекст - настоящие профессионалы, готовые к самым неординарным задачам клиента. Суммарно с помощью Миратекст для нас было написано более 16 млн знаков. Огромное спасибо, друзья!</p>
+						</div>
+					</div>
+				</div>
+				<!-- /one slide -->
+				<!-- one slide, active-->
+				<div class="carousel-item">
+					<div class="review">
+						<div class="review__avatar">
+							<img src="https://miratext.ru/img/public/review-avatar-1.png" alt="" />						</div>
+						<div class="review__vcard">
+							<div class="review__author">Озарничук Валерий</div>
+							<div class="review__prof">
+								Владелец <a href="https://q-parser.ru/">Q-Parser</a>
+							</div>
+						</div>
+						<div class="review__text">
+							<p>Создал беззаботный проект для написания статей для блога. Захожу на сайт только чтобы пополнить баланс, все остальное общение через менеджера. Пожалуй, первый удачный опыт такого формата работы, жутко удобно.</p>
+						</div>
+					</div>
+				</div>
+				<!-- /one slide -->
+				<!-- one slide -->
+				<div class="carousel-item">
+					<div class="review">
+						<div class="review__avatar">
+							<img src="https://miratext.ru/img/public/review-avatar-2.png" alt="" />						</div>
+						<div class="review__vcard">
+							<div class="review__author">Решетник Михаил</div>
+							<div class="review__prof">
+								Управляющий в <a href="https://dynamics.moscow/">dynamics.moscow</a>
+							</div>
+						</div>
+						<div class="review__text">
+							<p>Передали все свои проекты под управление Миратекста, тем самым разгрузили своих менеджеров проектов. Перестали думать о контенте вообще - раз в месяц обсудили план производства и получаем регулярный результат. Заранее знаем что будет выполнено в срок и главное - качественно! Большое Вам Спасибо!</p>
+						</div>
+					</div>
+				</div>
+				<!-- /one slide -->
+				<!-- one slide -->
+				<div class="carousel-item">
+					<div class="review">
+						<div class="review__avatar">
+							<img src="https://miratext.ru/img/public/review-avatar-3.png" alt="" />						</div>
+						<div class="review__vcard">
+							<div class="review__author">Светлана</div>
+							<div class="review__prof">
+								Владелец <a href="https://kakgevkusno.ru/">kakgevkusno.ru</a>
+							</div>
+						</div>
+						<div class="review__text">
+							<p>Спасибо огромное. У Вас отличная команда &#45; все без подводных камней. Хочу отметить Светлану, я начинала с ней работать &#45; просто, легко и многому они меня с Максимом научили. С их помощью возросла посещаемость блога, за что низкий поклон ВАМ: Светлана, Максим и Олечка. Удачи ВАМ и ВАШЕЙ команде. Еще раз спасибо и хорошо, что ВЫ есть.</p>
+						</div>
+					</div>
+				</div>
+				<!-- /one slide -->
+			</div>
+			<!-- /slides -->
+			<!-- arrows -->
+			<button class="carousel__arrow carousel__arrow_prev" href="#reviews" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></button>
+			<button class="carousel__arrow carousel__arrow_next" href="#reviews" role="button" data-slide="next"><i class="fa fa-angle-right"></i></button>
+			<!-- /arrows -->
+		</div>
+		<!-- /slider -->
+	</div>
+</section>
+<!-- /reviews -->
+<!-- projects -->
+<section class="section">
+	<div class="container">
+		<div class="section__title text-right section__title_min">Другие проекты холдинга Mirafox</div>
+		<div class="projects">
+			<a href="https://www.miralinks.ru/" class="project">
+				<img src="https://miratext.ru/img/public/projects/miralinks.png" alt="" />			</a>
+			<a href="https://gogetlinks.net/" class="project">
+				<img src="https://miratext.ru/img/public/projects/ggl.png" alt="" />			</a>
+			<a href="https://kwork.ru/" class="project">
+				<img src="https://miratext.ru/img/public/projects/kwork.png" alt="" />			</a>
+			<a href="https://pr-cy.ru/" class="project">
+				<img src="https://miratext.ru/img/public/projects/prcy.png" alt="" />			</a>
+			<a href="https://b2blogger.com/" class="project">
+				<img src="https://miratext.ru/img/public/projects/b2bbllogger.png" alt="" />			</a>
+			<a href="https://prnews.io/" class="project">
+				<img src="https://miratext.ru/img/public/projects/prnewsio.png" alt="" />			</a>
+			<a href="https://gogettop.ru/" class="project">
+				<img src="https://miratext.ru/img/public/projects/gogettop.png" alt="" />			</a>
+			<a href="https://miratext.ru/img/banners/content-watch_default_2.html" class="project">
+				<img src="https://miratext.ru/img/public/projects/contentwatch.png" alt="" />			</a>
+			<a href="https://telega.in/" class="project">
+				<img src="https://miratext.ru/img/public/projects/telega.png" alt="" />			</a>
+			<a href="https://zapostim.ru/" class="project">
+				<img src="https://miratext.ru/img/public/projects/zapostim.png" alt="" />			</a>
+		</div>
+	</div>
+</section>
+<!-- /projects -->	<!-- footer -->
+	<footer class="footer">
+	<div class="container">
+		<div class="row justify-content-between">
+			<div class="col-auto">
+				<div class="footer__widget">
+					<div class="footer__widget-title">БЕЗЗАБОТНЫЙ ПРОЕКТ</div>
+					<ul class="footer__menu">
+						<li><a href="https://miratext.ru/pages/vedenie-bloga">Ведение блога</a></li>
+						<li><a href="https://miratext.ru/pages/opisanie-tovarov">Описание товаров</a></li>
+						<li><a href="https://miratext.ru/pages/vechnie-ssilki">Вечные ссылки</a></li>
+						<li><a href="https://miratext.ru/pages/agentstvam">Интернет-агентствам</a></li>
+						<li><a href="https://miratext.ru/pages/individualno">Что-то индивидуальное</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-auto">
+				<div class="footer__widget">
+					<div class="footer__widget-title">ГАЛЕРЕЯ УСЛУГ</div>
+					<ul class="footer__menu">
+						<li><a href="https://miratext.ru/pages/semantika-i-klasterizaciya">Семантика и кластеризация</a></li>
+						<li><a href="https://miratext.ru/pages/obrabotka-kontenta">Обработка контента</a></li>
+						<li><a href="https://miratext.ru/pages/vichitka-redaktorom">Вычитка редактором</a></li>
+						<li><a href="https://miratext.ru/pages/content-plan">Контент-план</a></li>
+						<li><a href="https://miratext.ru/pages/yandex-q">Яндекс.Кью</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-auto">
+				<div class="footer__widget">
+										<div class="footer__widget-title">ИНСТРУМЕНТЫ</div>
+					<ul class="footer__menu">
+						<li><a href="https://miratext.ru/seo_analiz_text">Анализ текста</a></li>
+						<li><a href="https://miratext.ru/keywords-checker">Проверка вхождения ключевых слов</a></li>
+										
+					</ul>
+				</div>
+			</div>
+			<div class="col-auto">
+				<div class="footer__widget">
+					<div class="footer__widget-title">ПОЛЕЗНО</div>
+					<ul class="footer__menu">
+						<li><a href="https://miratext.ru/pages/rules">Правила</a></li>
+						<li><a href="https://help.miratext.ru/">Помощь</a></li>
+						<li><a href="https://miratext.ru/news/view">Новости</a></li>
+						<li><a href="https://miratext.ru/pages/faq">FAQ</a></li>
+						<li><a href="https://miratext.ru/pages/api">API</a></li>
+
+					</ul>
+				</div>
+			</div>
+			<div class="col-xl-2 col-12 order-xl-first">
+				<div class="footer__logo">
+					<a href="https://miratext.ru/miratext_default.html">
+						<img src="https://miratext.ru/img/public/logo.png?3" alt="" />					</a>
+				</div>
+				<div class="social">
+					<a href="https://www.facebook.com/miratext/" class="social__link">
+						<i class="ico ico__fb"></i>
+					</a>
+					<a href="https://vk.com/miratext" class="social__link">
+						<i class="ico ico__vk"></i>
+					</a>
+					<a href="https://twitter.com/Miratext" class="social__link">
+						<i class="ico ico__tw"></i>
+					</a>
+				</div>
+				<div class="social">
+					<svg class="card_ico" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<g clip-path="url(#clip0)">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M14.1441 11.1959L12.3627 22.1435H15.2127L16.9943 11.1959H14.1441V11.1959ZM9.96481 11.1959L7.24751 18.7256L6.92608 17.1042L6.92631 17.1047L6.85548 16.7413C6.52662 16.0326 5.76496 14.6855 4.32675 13.5359C3.90155 13.1961 3.47294 12.9062 3.05859 12.6584L5.52818 22.1435H8.49767L13.0323 11.1959H9.96481V11.1959ZM21.0879 14.2352C21.0879 12.9975 23.8636 13.1565 25.0833 13.8286L25.4899 11.4774C25.4899 11.4774 24.2348 11 22.9265 11C21.512 11 18.1533 11.6186 18.1533 14.6241C18.1533 17.4527 22.0954 17.4878 22.0954 18.9729C22.0954 20.4579 18.5597 20.1925 17.3929 19.2558L16.9689 21.7134C16.9689 21.7134 18.2414 22.3319 20.1863 22.3319C22.1309 22.3319 25.0655 21.3244 25.0655 18.584C25.0655 15.7377 21.0879 15.4726 21.0879 14.2352ZM32.7181 11.1959H30.4266C29.3685 11.1959 29.1109 12.0118 29.1109 12.0118L24.8605 22.1435H27.8312L28.4254 20.5175H32.0487L32.383 22.1435H34.9999L32.7181 11.1959ZM29.2468 18.2709L30.7444 14.1741L31.5869 18.2709H29.2468Z" fill="#005BAC"/>
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00662 12.2267C6.00662 12.2267 5.88865 11.2386 4.62922 11.2386H0.0535959L0 11.4243C0 11.4243 2.19941 11.8727 4.30947 13.5525C6.32592 15.1579 6.98372 17.1592 6.98372 17.1592L6.00662 12.2267Z" fill="#F6AC1D"/>
+						</g>
+						<defs>
+						<clipPath id="clip0">
+						<rect width="35" height="35" fill="white"/>
+						</clipPath>
+						</defs>
+					</svg>
+					<svg class="card_ico" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<g clip-path="url(#clip0)">
+						<path d="M10.9375 28.875C16.9781 28.875 21.875 23.9781 21.875 17.9375C21.875 11.8969 16.9781 7 10.9375 7C4.89689 7 0 11.8969 0 17.9375C0 23.9781 4.89689 28.875 10.9375 28.875Z" fill="#F93232"/>
+						<path d="M24.0625 7C21.6059 7 19.3463 7.82031 17.5219 9.1875H17.5V9.20281C17.0669 9.52875 16.6687 9.89625 16.2892 10.2812H18.7108C19.0477 10.6236 19.3583 10.99 19.6459 11.375H15.3453C15.0806 11.7239 14.8378 12.0881 14.6158 12.4688H20.3733C20.5789 12.8231 20.7725 13.1841 20.9398 13.5625H14.0591C13.9027 13.918 13.7648 14.2822 13.6467 14.6562H21.3511C21.4648 15.0128 21.5545 15.3792 21.6333 15.75H13.3612C13.288 16.1088 13.2267 16.4719 13.1895 16.8438H21.8094C21.852 17.2025 21.875 17.5667 21.875 17.9375H13.125C13.125 18.3083 13.1545 18.6703 13.1906 19.0312H21.8116C21.77 19.402 21.7098 19.7662 21.6344 20.125H13.3623C13.4378 20.498 13.5352 20.8611 13.6478 21.2188H21.3522C21.2341 21.5928 21.0963 21.957 20.9398 22.3125H14.0591C14.2242 22.6888 14.4102 23.0541 14.6158 23.4062H20.3733C20.1523 23.7869 19.9063 24.1511 19.6416 24.5H15.3453C15.6362 24.885 15.9502 25.2514 16.2881 25.5938H18.7108C18.3302 25.9798 17.9331 26.3463 17.5 26.6722C19.3288 28.0492 21.5961 28.875 24.0625 28.875C30.1033 28.875 35 23.9772 35 17.9375C35 11.8978 30.1033 7 24.0625 7Z" fill="#FED049"/>
+						</g>
+						<defs>
+						<clipPath id="clip0">
+						<rect width="35" height="21.875" fill="white" transform="translate(0 7)"/>
+						</clipPath>
+						</defs>
+					</svg>
+					<svg class="card_ico" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M3.23656 12.0018C3.54925 11.9997 4.47853 11.9067 4.87216 13.3828C5.13731 14.3772 5.55968 16.0059 6.13927 18.269H6.37531C6.99687 15.8831 7.42385 14.2543 7.65624 13.3828C8.05397 11.8914 9.04829 12.0018 9.44602 12.0018L12.5146 12.0018V22.6079H9.38702V16.3576H9.17729L7.43383 22.6079H5.08074L3.33728 16.3529H3.12756V22.6079H0V12.0018L3.23656 12.0018ZM17.0057 12.0018V18.2568H17.2552L19.3759 13.1134C19.7876 12.0898 20.665 12.0018 20.665 12.0018H23.6916V22.6079H20.4987V16.3529H20.2492L18.17 21.4963C17.7583 22.5153 16.8393 22.6079 16.8393 22.6079H13.8128V12.0018H17.0057ZM34.7276 17.0419C34.2822 18.4442 32.8836 19.4485 31.3351 19.4485H27.9867V22.6079H24.9505V17.0419H34.7276Z" fill="#0F754E"/>
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M31.4813 12.002H24.791C24.9502 14.3632 26.7804 16.3846 28.6749 16.3846H34.9383C35.2998 14.4221 34.0555 12.002 31.4813 12.002Z" fill="url(#paint0_linear)"/>
+						<defs>
+						<linearGradient id="paint0_linear" x1="34.9997" y1="14.7588" x2="24.791" y2="14.7588" gradientUnits="userSpaceOnUse">
+						<stop stop-color="#1F5CD7"/>
+						<stop offset="1" stop-color="#02AEFF"/>
+						</linearGradient>
+						</defs>
+					</svg>
+				</div>
+				<div class="copy"><a href="https://miratext.ru/InBills/viewOferta">Публичная оферта</a>. <a href="https://miratext.ru/policy.pdf">Политика обработки персональных данных</a>.</div>
+			</div>
+		</div>
+	</div>
+</footer>
+	<!-- /footer -->
+</div>
+<!-- /wrapper -->
+	<div class="modal" id="popup" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog notransform">
+		<div class="modal-content">
+			<div class="modal-header" id="popupHeader">
+									<div class="modal-title h4" id="popupTitle"></div>
+								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			</div>
+			<div class="modal-body" id="popupBody">
+			</div>
+		</div>
+	</div>
+</div>			<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+	(w[c] = w[c] || []).push(function() {
+		try {
+			var params = {};
+			if (typeof(window.yaParams) != 'undefined') {
+				params = window.yaParams
+			}
+			w.yaCounter16499218 = new Ya.Metrika({id:16499218,
+				webvisor:true,
+				clickmap:true,
+				trackLinks:true,
+				accurateTrackBounce:true,
+				params:params});
+																				} catch(e) { }
+	});
+
+	var n = d.getElementsByTagName("script")[0],
+		s = d.createElement("script"),
+		f = function () { n.parentNode.insertBefore(s, n); };
+	s.type = "text/javascript";
+	s.async = true;
+	s.src = "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js";
+
+	if (w.opera == "[object Opera]") {
+		d.addEventListener("DOMContentLoaded", f);
+	} else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/16499218" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->			
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.eu01.nr-data.net","licenseKey":"NRJS-191fb941c8dc93c6b81","applicationID":"32589471","transactionName":"MhBSZQoZWksHAUxdDQtacVIMEVtWSQ9ZXQxKHF5VHQA=","queueTime":0,"applicationTime":373,"atts":"HldRE0IDSUU=","errorBeacon":"bam.eu01.nr-data.net","agent":""}</script></body>
+</html>
